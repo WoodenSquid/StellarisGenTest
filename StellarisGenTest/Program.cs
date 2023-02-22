@@ -40,6 +40,8 @@ foreach (var fileAndContents in parsedTraitFiles)
     Console.WriteLine(fileAndContents.Key);
     foreach (var traitNode in fileAndContents.Value.Nodes)
     {
+        Console.WriteLine("****************************");
+        Console.WriteLine($"Trait: {traitNode.Key}");
         traitNode.KeyValues.ForEach(x => Console.WriteLine(x.Key));
     }
     Console.WriteLine("--------------------------------------------------------");
