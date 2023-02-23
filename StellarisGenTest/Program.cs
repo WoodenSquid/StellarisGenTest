@@ -38,7 +38,7 @@ foreach (var fileAndContents in parsedTraitFiles)
 {
     Console.WriteLine("--------------------------------------------------------");
     Console.WriteLine(fileAndContents.Key);
-    foreach (var traitNode in fileAndContents.Value.Nodes)
+    foreach (CWNode traitNode in fileAndContents.Value.Nodes)
     {
         Console.WriteLine("****************************");
         Console.WriteLine($"Trait: {traitNode.Key}");
