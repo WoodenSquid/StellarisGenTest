@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //const promise = fetch('cwtest');
-export class FetchCwData extends Component {
-  static displayName = FetchCwData.name;
+export class FetchSpeciesData extends Component {
+  static displayName = FetchSpeciesData.name;
 
   constructor(props) {
     super(props);
@@ -9,23 +9,25 @@ export class FetchCwData extends Component {
   }
 
   componentDidMount() {
-    this.populateCwData();
+    this.populateSpeciesData();
   }
 
-  static renderCwTable(forecasts) {
+  static renderSpeciesTable(forecasts) {
     return (
       <table className="table table-striped" aria-labelledby="tableLabel">
         <thead>
           <tr>
             <th>Name</th>
-            <th>Children</th>
+            <th>Archetype</th>
+            <th>Playable</th>
           </tr>
         </thead>
         <tbody>
           {forecasts.map(forecast =>
             <tr key={forecast.name}>
               <td>{forecast.name}</td>
-              <td>{forecast.test}</td>
+              <td>{forecast.archetype}</td>
+              <td>{forecast.playable}</td>
             </tr>
           )}
         </tbody>
@@ -36,19 +38,19 @@ export class FetchCwData extends Component {
   render() {
     let contents = this.state.loading
       ? <p><em>Loading...</em></p>
-      : FetchCwData.renderCwTable(this.state.forecasts);
+      : FetchSpeciesData.renderSpeciesTable(this.state.forecasts);
 
     return (
       <div>
-        <h1 id="tableLabel">CW Data</h1>
+        <h1 id="tableLabel">Species Data</h1>
         <p>This component demonstrates fetching data from the server.</p>
         {contents}
       </div>
     );
   }
 
-  async populateCwData() {
-    const response = await fetch('cwtest');
+  async populateSpeciesData() {
+    const response = await fetch('cwspeciesclass');
     console.log(response);
     const data = await response.json();
     console.log("Test");

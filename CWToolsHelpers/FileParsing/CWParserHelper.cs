@@ -63,6 +63,7 @@ namespace CWToolsHelpers.FileParsing
             // raw parsing
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             var parsed = CKParser.parseEventFile(filePath);
+            //var parsed2 = CK
 
             if (parsed.IsSuccess)
             {

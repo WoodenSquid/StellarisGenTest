@@ -17,6 +17,8 @@ public class WeatherForecastController : ControllerBase
     {
         _logger = logger;
     }
+    
+    
 
     [HttpGet]
     public IEnumerable<WeatherForecast> Get()

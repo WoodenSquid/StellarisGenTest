@@ -11,18 +11,20 @@ namespace StellarisGenTest.Controllers;
 [ApiController]
 [Route("[controller]")]
 
-public class CwTestController : ControllerBase
+public class CwSpeciesClassController : ControllerBase
 {
-    private readonly ILogger<CwTestController> _logger;
-    private static List<CwTest> _results;
-    public CwTestController(ILogger<CwTestController> logger, Config config)
+    private readonly ILogger<CwSpeciesClassController> _logger;
+    private static List<SpeciesClass> _results;
+    public CwSpeciesClassController(ILogger<CwSpeciesClassController> logger, DataStructure config)
     {
         _logger = logger;
-        _results = config.Traits;
+        _results = config.SpeciesClasses;
+        //_results.ForEach(x => _logger.Log(LogLevel.Information, x.Name));
+        //_results.ForEach(x => Console.WriteLine(x.Name));
     }
     
     [HttpGet]
-    public IEnumerable<CwTest> Get()
+    public IEnumerable<SpeciesClass> Get()
     {
         //Program.list
         // var stellarisDirectoryHelper = new StellarisDirectoryHelper(@"C:\Program Files (x86)\Steam\steamapps\common\Stellaris");

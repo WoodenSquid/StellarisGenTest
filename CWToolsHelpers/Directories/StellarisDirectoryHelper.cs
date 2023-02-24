@@ -43,6 +43,12 @@ namespace CWToolsHelpers.Directories
         public string Common => GetCommonDirectory(Root);
 
         public string Traits => GetTraitsDirectory(Root);
+        
+        public string SpeciesArchtypes => GetSpeciesArchtypesDirectory(Root);
+        
+        public string SpeciesClasses => GetSpeciesClassesDirectory(Root);
+        
+        public string EthicsClasses => GetEthicsClassesDirectory(Root);
 
         public string Technology => GetTechnologyDirectory(Root);
 
@@ -80,6 +86,21 @@ namespace CWToolsHelpers.Directories
         public static string GetTraitsDirectory(string rootDirectory)
         {
             return Path.Combine(GetCommonDirectory(rootDirectory), "traits");
+        }
+        
+        public static string GetSpeciesArchtypesDirectory(string rootDirectory)
+        {
+            return Path.Combine(GetCommonDirectory(rootDirectory), "species_archetypes");
+        }
+        
+        public static string GetSpeciesClassesDirectory(string rootDirectory)
+        {
+            return Path.Combine(GetCommonDirectory(rootDirectory), "species_classes");
+        }
+        
+        public static string GetEthicsClassesDirectory(string rootDirectory)
+        {
+            return Path.Combine(GetCommonDirectory(rootDirectory), "ethics");
         }
 
         public static string GetTechnologyDirectory(string rootDirectory)
