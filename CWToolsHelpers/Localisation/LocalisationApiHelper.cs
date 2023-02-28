@@ -35,8 +35,9 @@ namespace CWToolsHelpers.Localisation
             {
                 if (Directory.Exists(directoryHelper.Localisation))
                 {
-                    var localisationService =
-                        new STLLocalisation.STLLocalisationService(new LocalisationSettings(directoryHelper.Localisation));
+                    //new LocalisationSettings(directoryHelper.Localisation)
+                    var localisationService = STL.STLLocalisationServiceFromFolder(directoryHelper.Localisation);
+                        //new STLLocalisation.STLLocalisationService(new LocalisationSettings(directoryHelper.Localisation));
                     var values = localisationService.Api(Lang.NewSTL(language)).Values;
                     localisation.PutAll(values);
                 }

@@ -244,5 +244,5 @@ app.Run();
 
 public class Config
 {
-    public List<CwTest> Traits { get; set; }
+    public List<CwTest>? Traits { get; set; }
 }

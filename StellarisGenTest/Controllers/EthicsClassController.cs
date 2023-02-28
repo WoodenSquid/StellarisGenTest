@@ -14,7 +14,7 @@ namespace StellarisGenTest.Controllers;
 public class EthicsClassController : ControllerBase
 {
     private readonly ILogger<EthicsClassController> _logger;
-    private static List<EthicsClass> _results;
+    private static List<EthicsClass>? _results;
     public EthicsClassController(ILogger<EthicsClassController> logger, DataStructure config)
     {
         _logger = logger;
@@ -24,7 +24,7 @@ public class EthicsClassController : ControllerBase
     }
     
     [HttpGet]
-    public IEnumerable<EthicsClass> Get()
+    public IEnumerable<EthicsClass>? Get()
     {
         //Program.list
         // var stellarisDirectoryHelper = new StellarisDirectoryHelper(@"C:\Program Files (x86)\Steam\steamapps\common\Stellaris");
@@ -57,7 +57,7 @@ public class EthicsClassController : ControllerBase
         //         //NextLayer = new List<string>().Append("TT").ToList()
         //     })
         //     .ToArray();
-        return _results.ToArray();
+        return _results?.ToArray();
         
         
     }

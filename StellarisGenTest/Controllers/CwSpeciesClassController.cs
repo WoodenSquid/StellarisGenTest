@@ -14,17 +14,17 @@ namespace StellarisGenTest.Controllers;
 public class CwSpeciesClassController : ControllerBase
 {
     private readonly ILogger<CwSpeciesClassController> _logger;
-    private static List<SpeciesClass> _results;
-    public CwSpeciesClassController(ILogger<CwSpeciesClassController> logger, DataStructure config)
+    private static List<SpeciesClass>? _results;
+    public CwSpeciesClassController(ILogger<CwSpeciesClassController> logger, DataStructure? config)
     {
         _logger = logger;
-        _results = config.SpeciesClasses;
+        if (config != null) _results = config.SpeciesClasses;
         //_results.ForEach(x => _logger.Log(LogLevel.Information, x.Name));
         //_results.ForEach(x => Console.WriteLine(x.Name));
     }
     
     [HttpGet]
-    public IEnumerable<SpeciesClass> Get()
+    public IEnumerable<SpeciesClass>? Get()
     {
         //Program.list
         // var stellarisDirectoryHelper = new StellarisDirectoryHelper(@"C:\Program Files (x86)\Steam\steamapps\common\Stellaris");
@@ -57,7 +57,7 @@ public class CwSpeciesClassController : ControllerBase
         //         //NextLayer = new List<string>().Append("TT").ToList()
         //     })
         //     .ToArray();
-        return _results.ToArray();
+        return _results?.ToArray();
         
         
     }

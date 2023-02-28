@@ -14,7 +14,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="CWTools" Version="0.3.0" />
         <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="7.0.3" />
     </ItemGroup>
 

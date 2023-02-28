@@ -14,7 +14,7 @@ namespace StellarisGenTest.Controllers;
 public class CwTestController : ControllerBase
 {
     private readonly ILogger<CwTestController> _logger;
-    private static List<CwTest> _results;
+    private static List<CwTest>? _results;
     public CwTestController(ILogger<CwTestController> logger, Config config)
     {
         _logger = logger;
@@ -22,7 +22,7 @@ public class CwTestController : ControllerBase
     }
     
     [HttpGet]
-    public IEnumerable<CwTest> Get()
+    public IEnumerable<CwTest>? Get()
     {
         //Program.list
         // var stellarisDirectoryHelper = new StellarisDirectoryHelper(@"C:\Program Files (x86)\Steam\steamapps\common\Stellaris");
@@ -55,7 +55,7 @@ public class CwTestController : ControllerBase
         //         //NextLayer = new List<string>().Append("TT").ToList()
         //     })
         //     .ToArray();
-        return _results.ToArray();
+        return _results?.ToArray();
         
         
     }

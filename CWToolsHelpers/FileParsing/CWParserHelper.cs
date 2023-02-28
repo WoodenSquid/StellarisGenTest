@@ -71,7 +71,8 @@ namespace CWToolsHelpers.FileParsing
                 var eventFile = parsed.GetResult();
 
                 //"Process" result into nicer format
-                CK2Process.EventRoot processed = CK2Process.processEventFile(eventFile);
+                //CK2Process.EventRoot processed = CK2Process.processEventFile(eventFile);
+                var processed = CK2Process.processEventFile(eventFile);
 
                 // marshall this into a more c# fieldy type using the CWTools example
                 CWNode marshaled = ToMyNode(processed);
@@ -89,7 +90,7 @@ namespace CWToolsHelpers.FileParsing
             var leaves = n.AllChildren.Where(x => x.IsLeafC).Select(x => ToMyKeyValue(x.leaf)).ToList();
             var tempAccessor = scriptedVariablesAccessor.CreateNew(leaves);
             var nodes = n.AllChildren.Where(x => x.IsNodeC).Select(x => ToMyNode(x.node, tempAccessor)).ToList();
-            var values = n.AllChildren.Where(x => x.IsLeafValueC).Select(x => x.lefavalue.Key).ToList();
+            var values = n.AllChildren.Where(x => x.IsLeafValueC).Select(x => x.leafvalue.Key).ToList();
             return new CWNode(n.Key) { Nodes = nodes, Values = values, RawKeyValues = leaves, ScriptedVariablesAccessor = tempAccessor };
         }
 
@@ -97,7 +98,7 @@ namespace CWToolsHelpers.FileParsing
         {
             var nodes = n.AllChildren.Where(x => x.IsNodeC).Select(x => ToMyNode(x.node, sa)).ToList();
             var leaves = n.AllChildren.Where(x => x.IsLeafC).Select(x => ToMyKeyValue(x.leaf)).ToList();
-            var values = n.AllChildren.Where(x => x.IsLeafValueC).Select(x => x.lefavalue.Key).ToList();
+            var values = n.AllChildren.Where(x => x.IsLeafValueC).Select(x => x.leafvalue.Key).ToList();
             return new CWNode(n.Key) { Nodes = nodes, Values = values, RawKeyValues = leaves, ScriptedVariablesAccessor = sa };
         }
 

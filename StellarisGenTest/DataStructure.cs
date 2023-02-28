@@ -7,8 +7,8 @@ public class DataStructure
     //     SpeciesClasses = speciesClasses;
     // }
 
-    public List<SpeciesArchtypes> SpeciesArchtypes { get; set; }
-    public List<CwTest> Traits { get; set; }
-    public List<SpeciesClass> SpeciesClasses { get; set; }
-    public List<EthicsClass> EthicsClass { get; set; }
+    public List<SpeciesArchtypes>? SpeciesArchtypes { get; set; }
+    public List<CwTest>? Traits { get; set; }
+    public List<SpeciesClass>? SpeciesClasses { get; set; }
+    public List<EthicsClass>? EthicsClass { get; set; }
 }
